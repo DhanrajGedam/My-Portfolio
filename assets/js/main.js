@@ -1,3 +1,73 @@
+const form = document.querySelector("form");
+const fullname = document.getElementById("name");
+const email = document.getElementById("email");
+const message = document.getElementById("message");
+const subject = document.getElementById("subject");
+
+//   Validate Form before sending the email
+
+function validateAndSendEmail(event) {
+    event.preventDefault(); // Prevent the form from submitting by default
+
+    var email = document.getElementById('email').value;
+    var emailError = document.getElementById('emailError');
+
+    // Regular expression for basic email validation
+    var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+    if (emailRegex.test(email)) {
+        // Email format is correct, you can proceed with sending the email
+        console.log('Email format is correct. Proceed with sending the email.');
+        // Here you can add your code to send the email
+        // For example, you might want to use AJAX to send the email without reloading the page
+
+        // Hide the error message
+        emailError.style.display = 'none';
+
+        // Call the function to send the email
+        sendEmail();
+    } else {
+        // Email format is incorrect, show an error message
+        console.log('Invalid email format.');
+        emailError.style.display = 'block';
+    }
+}
+
+
+// Functional Email to send
+function sendEmail() {
+    const bodyMessage = `Full Name: ${fullname.value}<br> Email: ${email.value}<br> Message: ${message.value}<br> subject: ${subject.value}<br>`;
+    Email.send({
+      Host: "smtp.elasticemail.com",
+      Username: "coolboydhanraj@gmail.com",
+      Password: "5F66B9200B3574D9B673A4EA557D4A680E3C",
+      To: "coolboydhanraj@gmail.com",
+      From: "coolboydhanraj@gmail.com",
+      Subject: subject.value,
+      Body: bodyMessage
+    }).then(message =>{
+      if(message == "OK"){
+        Swal.fire({
+            title: "Successfull !",
+            text: "Your message sent successfully !",
+            icon: "success"
+          });
+      }
+      document.getElementById('emailForm').reset();
+    })
+  }
+
+
+// Attach the event listener to the form
+document.getElementById('emailForm').addEventListener('submit', validateAndSendEmail);
+
+form.addEventListener("submit", (e) => {
+    validateAndSendEmail();
+    sendEmail();
+});
+  
+
+
 /* ----- NAVIGATION BAR FUNCTION ----- */
 function myMenuFunction(){
     var menuBtn = document.getElementById("myNavMenu");
@@ -54,7 +124,7 @@ sr.reveal('.featured-text-card',{})
 sr.reveal('.featured-name',{delay: 100})
 sr.reveal('.featured-text-info',{delay: 200})
 sr.reveal('.featured-text-button',{delay: 200})
-sr.reveal('.social_icons',{delay: 200})
+sr.reveal('.social_icon',{delay: 200})
 sr.reveal('.featured-image',{delay: 300})
 
 
@@ -116,4 +186,5 @@ function scrollActive() {
   })
 }
 
-window.addEventListener('scroll', scrollActive)
+window.addEventListener('scroll', scrollActive);
+

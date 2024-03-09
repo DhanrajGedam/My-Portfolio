@@ -66,7 +66,7 @@
                         <button class="btn blue-btn">Hire me</button>
                         <a href="https://drive.google.com/file/d/1ZZ6Uq90fVtpFIhIBqigqUlLEWmLjBWYY/view?usp=sharing" download target="_blank" class="btn" style="text-decoration: none; ">Download CV <i class="uil uil-file-alt"></i></a>
                     </div>
-                    <div class="social-icon">
+                    <div class="social_icon">
                         <a href="https://www.linkedin.com/in/dhanraj-gedam/" target="_blank" class="icon"><i class="uil uil-linkedin-alt"></i></a>
                         <a href="https://github.com/DhanrajGedam" target="_blank" class="icon"><i class="uil uil-github-alt"></i></a>
                     </div>
@@ -155,7 +155,6 @@
                     </div>
                 </div>
             </section>
-
             <!-- Github Repository Link  -->
             <section id="git-link">
                 <a href="https://github.com/DhanrajGedam?tab=repositories" download target="_blank" class="btn" style="text-decoration: none;">Explore more projects <i class="uil uil-file-search-alt"></i></a>
@@ -165,12 +164,13 @@
             <section>
                 <div class="contact-info" id="Exp">
                     <h2>Experience <i class="uil uil-award"></i></h2>
-                   <a href="https://drive.google.com/file/d/1nI-Ck2IaSjESiCCGgJGErbenG3AEZEVB/view?usp=sharing" download target="_blank"> <p>Certification on Core Java, Computer Paradise Mysore. <b>Dec’21</b></p></a>
-                    <a href="https://drive.google.com/file/d/1-dyE7bY5qYn_5RvBP6QJpJUuR7rgtY82/view?usp=sharing"download target="_blank"><p>Full Stack Web Development, Microsoft Certified Online Training & Internship by IIT Kanpur. <b>Jun ’22</b></p></a>
-                    <a href="https://drive.google.com/file/d/1ml2clbxNyh-pMDSEpgo31UlxK1TRJVAe/view?usp=sharing"download target="_blank"><p>Python Full Stack Web Development by PentagonSpace India Pvt ltd, Bangalore. <b>Oct ’22</b></p></a>
-                    <a href="https://codekaro.in/course-certificate/5abedf9d58396096" download target="_blank"><p>How to JavaScript, Bootcamp by CodeKaro. <b>sep ’23</b></p></a>
-                    <a href="https://drive.google.com/file/d/1m4SFdd1ihxF1rvM4CymwU8Yc1XCh8z2W/view?usp=sharing"download target="_blank"><p>Web Development Course by SoloLearn, Online certification. <b>Oct ’23</b></p></a>
-                    <a href="https://drive.google.com/file/d/1mqF1zXp61VubUHqX3ua3QTVzQFAg53zo/view?usp=sharing"download target="_blank"><p>Frontend Development Workshop for Beginners by Scholarhat. <b>Oct ’23</b></p></a>
+                    <a href="https://drive.google.com/file/d/14Z3JIAFhkmVNzOZEIyr8IPjyV9sBHN7D/view?usp=sharing"download target="_blank"><p>TECHPLEMENT Internship as a Frontend Developer. <b>February 2024</b></p></a>
+                    <a href="https://drive.google.com/file/d/1mqF1zXp61VubUHqX3ua3QTVzQFAg53zo/view?usp=sharing"download target="_blank"><p>Frontend Development Workshop for Beginners by Scholarhat. <b>October 2023</b></p></a>
+                    <a href="https://drive.google.com/file/d/1m4SFdd1ihxF1rvM4CymwU8Yc1XCh8z2W/view?usp=sharing"download target="_blank"><p>Web Development Course by SoloLearn, Online certification. <b>October 2023</b></p></a>
+                    <a href="https://codekaro.in/course-certificate/5abedf9d58396096" download target="_blank"><p>How to JavaScript, Bootcamp by CodeKaro. <b>September 2023</b></p></a>
+                    <a href="https://drive.google.com/file/d/1ml2clbxNyh-pMDSEpgo31UlxK1TRJVAe/view?usp=sharing"download target="_blank"><p>Python Full Stack Web Development by PentagonSpace India Pvt ltd, Bangalore. <b>October 2022</b></p></a>
+                    <a href="https://drive.google.com/file/d/1-dyE7bY5qYn_5RvBP6QJpJUuR7rgtY82/view?usp=sharing"download target="_blank"><p>Full Stack Web Development, Microsoft Certified Online Training & Internship by IIT Kanpur. <b>June 2022</b></p></a>
+                   <a href="https://drive.google.com/file/d/1nI-Ck2IaSjESiCCGgJGErbenG3AEZEVB/view?usp=sharing" download target="_blank"> <p>Certification on Core Java, Computer Paradise Mysore. <b>December 2021</b></p></a>
                 </div>
             </section>
 
@@ -189,18 +189,21 @@
                         </div>
                     </div>
                     <div class="col">
-                        <div class="form-control">
+                        <form action="#" class="form-control" id="emailForm">
                             <div class="form-inputs">
-                                <input type="text" class="input-field" placeholder="Name">
-                                <input type="text" class="input-field" placeholder="Email">
+                                <input type="text" class="input-field" id="name" placeholder="Name" autocomplete="off">
+                                <input type="text" class="input-field" id="email" placeholder="Email" name="email"  autocomplete="off" required>
+                                
+                                <input type="text" class="input-field" id="subject" placeholder="Subject" autocomplete="off">
                             </div>
                             <div class="text-area">
-                                <textarea placeholder="Your message"></textarea>
+                                <textarea  placeholder="Your message" id="message" autocomplete="off"></textarea>
                             </div>
+                            <div id="emailError" style="color: red; display: none; flex-direction: column; font-size: x-large;">Invalid email format</div>
                             <div class="form-button">
                                 <button class="btn">Send <i class="uil uil-message"></i></button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </section>
@@ -238,6 +241,9 @@
             </div>
         </footer>
     </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     
