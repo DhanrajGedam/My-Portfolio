@@ -4,6 +4,13 @@ const email = document.getElementById("email");
 const message = document.getElementById("message");
 const subject = document.getElementById("subject");
 
+// Send mail on Clicking Hire Me button
+
+document.getElementById('hire-me-button').addEventListener('click', function() {
+  window.location.href = "mailto:coolboydhanraj@gmail.com";
+});
+
+
 //   Validate Form before sending the email
 
 function validateAndSendEmail(event) {
